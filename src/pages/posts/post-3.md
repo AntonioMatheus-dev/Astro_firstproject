@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Aprender construindo'
-pubDate: 2022-07-03
+pubDate: 2026-07-03
 description: 'Por que gosto de aprender novas ferramentas criando algo real.'
 author: 'Antonio Matheus'
 image:

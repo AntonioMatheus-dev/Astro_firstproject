@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Um site que também é um blog'
-pubDate: 2022-07-02
+pubDate: 2026-07-02
 description: 'Organizando páginas e publicações para dar forma ao meu espaço na web.'
 author: 'Antonio Matheus'
 image:

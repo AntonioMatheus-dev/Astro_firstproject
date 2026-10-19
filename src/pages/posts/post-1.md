@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Meu primeiro post: começando com Astro'
-pubDate: 2022-07-01
+pubDate: 2026-07-01
 description: 'O começo da minha jornada criando um site e aprendendo Astro na prática.'
 author: 'Antonio Matheus'
 image:
