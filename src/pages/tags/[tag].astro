@@ -5,6 +5,7 @@ import BlogPost from '../../components/BlogPost.astro';
 type Post = {
   frontmatter: {
     title: string;
+    description: string;
     tags?: string[];
   };
   url: string;
@@ -39,11 +40,11 @@ const { tag } = Astro.params;
 const { posts } = Astro.props as Props;
 ---
 
-<BaseLayout pageTitle={tag}>
-  <p>Postagens com a tag {tag}</p>
-  <ul>
+<BaseLayout pageTitle={`Assunto: ${tag}`}>
+  <p class="page-intro">Publicações sobre {tag}.</p>
+  <ul class="post-list">
     {posts.map((post) => (
-      <BlogPost url={post.url} title={post.frontmatter.title} />
+      <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} />
     ))}
   </ul>
 </BaseLayout>

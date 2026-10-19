@@ -4,21 +4,45 @@ import Menu from './Menu.astro';
 import ThemeIcon from './ThemeIcon.astro';
 ---
 <header>
-
-    <nav>
-        <div>
-            <ThemeIcon/>
-        <Menu/>
-        </div>
-     <Navigation/>
-    </nav>
-
+  <nav aria-label="Navegação principal">
+    <div>
+      <a class="site-brand" href="/" aria-label="Antonio Matheus — página inicial">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>Antonio Matheus</span>
+      </a>
+      <ThemeIcon />
+      <Menu />
+    </div>
+    <Navigation />
+  </nav>
 </header>
 
-
 <style>
-  div {
-    display: flex;
-    justify-content: space-between;
+  header {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--ink);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
   }
 </style>

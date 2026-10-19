@@ -1,10 +1,88 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting.jsx';
-const pageTitle = "Home Page";
+import BlogPost from '../components/BlogPost.astro';
+
+type PostFrontmatter = {
+  title: string;
+  description: string;
+  pubDate: Date;
+};
+
+const recentPosts = Object.values(
+  import.meta.glob<{ frontmatter: PostFrontmatter; url: string }>('./posts/*.md', { eager: true })
+)
+  .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf())
+  .slice(0, 3);
+
+const pageTitle = 'Ideias, código e caminhos.';
 ---
 <BaseLayout pageTitle={pageTitle}>
-  
-  <h2>My awesome blog subtitle</h2>
-  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+  <section class="hero" aria-label="Apresentação">
+    <div>
+      <p class="eyebrow">Um caderno pessoal de Antonio Matheus</p>
+      <p class="hero-copy">
+        Sou escritor técnico brasileiro e curioso por natureza. Aqui compartilho o que aprendo
+        sobre tecnologia, criação para a web e as pequenas descobertas pelo caminho.
+      </p>
+      <div class="hero-actions">
+        <a class="button-link" href="/blog/">Leia o caderno</a>
+        <a class="button-link secondary" href="/about/">Conheça minha história</a>
+      </div>
+      <Greeting client:load messages={['Oi! Que bom ter você por aqui.', 'Olá! Fique à vontade para explorar.', 'E aí! Obrigado pela visita.']} />
+    </div>
+    <aside class="hero-note" aria-label="Um pouco sobre mim">
+      <p class="note-title">Gostos</p>
+      <p>👨‍💻 Código</p>
+      <p>🎵 Musica</p>
+      <p>📚 Livros</p>
+      <p>🇧🇷 Brasil</p>
+    </aside>
+  </section>
+
+  <section aria-labelledby="recentes">
+    <div class="section-heading">
+      <h2 id="recentes">Do caderno</h2>
+      <a href="/blog/">Todas as publicações <span aria-hidden="true">→</span></a>
+    </div>
+    <ul class="post-list">
+      {recentPosts.map((post) => (
+        <BlogPost
+          url={post.url}
+          title={post.frontmatter.title}
+          description={post.frontmatter.description}
+          pubDate={post.frontmatter.pubDate}
+        />
+      ))}
+    </ul>
+  </section>
 </BaseLayout>
+
+<style>
+  .greeting {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .greeting-message {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .greeting button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--accent-strong);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+  }
+</style>

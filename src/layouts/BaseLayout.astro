@@ -2,20 +2,24 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-const { pageTitle } = Astro.props;
+const { pageTitle, pageDescription = 'Um espaço pessoal de Antonio Matheus sobre tecnologia, escrita e descobertas.' } = Astro.props;
 ---
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={pageDescription} />
     <title>{pageTitle}</title>
   </head>
   <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <Header />
-    <h1>{pageTitle}</h1>
-    <slot/>
+    <main id="conteudo" class="page-shell">
+      <h1>{pageTitle}</h1>
+      <slot />
+    </main>
     <Footer />
     <script>
       import "../scripts/menu.js";

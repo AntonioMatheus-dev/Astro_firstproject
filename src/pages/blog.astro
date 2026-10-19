@@ -6,17 +6,19 @@ import type {MarkdownInstance} from 'astro';
 type Postfromatter={
   title: string;
   pubDate: Date;
+  description: string;
 }
 
 const allPosts = Object.values(
   import.meta.glob<MarkdownInstance<Postfromatter>>('./posts/*.md', { eager: true, })
 );
-const pageTitle = "My Astro Learning Blog";
+const pageTitle = "Caderno";
 ---
-<BaseLayout pageTitle={pageTitle}>
-  <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
-   {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+<BaseLayout pageTitle={pageTitle} pageDescription="Anotações, aprendizados e ideias de Antonio Matheus sobre tecnologia, escrita e criação para a web.">
+  <p class="page-intro">Anotações de percurso sobre tecnologia, escrita e tudo o que vale a pena aprender em público.</p>
+  <ul class="post-list">
+   {allPosts
+     .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf())
+     .map((post) => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate} />)}
   </ul>
 </BaseLayout>
-

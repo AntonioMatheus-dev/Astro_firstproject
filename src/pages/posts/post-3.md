@@ -1,16 +1,14 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'My third Blog Post'
-pubDate: 2022-07-01
-description: 'This is the first post of my new Astro blog.'
-author: 'Astro Learner'
+title: 'Aprender construindo'
+pubDate: 2022-07-03
+description: 'Por que gosto de aprender novas ferramentas criando algo real.'
+author: 'Antonio Matheus'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'The Astro logo on a dark background with a pink glow.'
+    alt: 'Uma rosa em tons suaves.'
 tags: ["astro", "comunidade", "aprendendo em público"]
 ---
-# My Third Blog Post
+# Aprender construindo
 
-Published on: 2022-07-03
-
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+Para mim, aprender uma ferramenta fica mais interessante quando existe um projeto de verdade para guiar as perguntas. Ao criar este site, cada página virou uma oportunidade de experimentar, errar, ajustar e entender um pouco melhor.

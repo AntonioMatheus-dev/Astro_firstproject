@@ -1,39 +1,22 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
+const pubDate = new Date(frontmatter.pubDate);
 ---
 <BaseLayout pageTitle={frontmatter.title}>
-  <p><em>{frontmatter.description}</em></p>
-  <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
+  <p class="page-intro"><em>{frontmatter.description}</em></p>
+  <div class="article-meta">
+    <p><time datetime={pubDate.toISOString()}>{pubDate.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}</time></p>
+    <p>Por {frontmatter.author}</p>
+  </div>
 
-  <p>Escrito por: {frontmatter.author}</p>
+  <img class="article-image" src={frontmatter.image.url} alt={frontmatter.image.alt} />
 
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-
-  <div class="tags">
+  <div class="tags" aria-label="Assuntos desta publicação">
     {frontmatter.tags.map((tag: string) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+      <p class="tag"><a href={`/tags/${tag}/`}>{tag}</a></p>
     ))}
   </div>
 
-  <slot />
+  <article class="article-content"><slot /></article>
 </BaseLayout>
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-</style>

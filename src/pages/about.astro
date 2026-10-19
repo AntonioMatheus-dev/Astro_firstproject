@@ -1,60 +1,39 @@
 ---
-const pageTitle = "About Me";
+const pageTitle = 'Um pouco sobre mim';
 import BaseLayout from '../layouts/BaseLayout.astro';
 const identity = {
   firstName: "Antonio Matheus",
-  country: "Brazil",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
+  country: "Brasil",
+  occupation: "escritor técnico",
+  hobbies: ["fotografia", "observação de aves", "beisebol"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
-
-const skillColor = "crimson";
-const fontWeight = "bold";
-const textCase = "uppercase";
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Documentação técnica"];
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <h2>my name is Antonio Matheus and this is my new Astro site!</h2>
-
-  <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-
-  <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-
-  <p>Here are a few facts about me:</p>
-<ul>
-
-  <li>My name is {identity.firstName}.</li>
-  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-  {identity.hobbies.length >= 2 &&
-    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-  }
-</ul>
-<p>My skills are:</p>
-<ul class="skill-list">
-  {skills.map((skill) => <li>{skill}</li>)}
-</ul>
-
-{happy && <p>I am happy to be learning Astro!</p>}
-
-{finished && <p>I finished this tutorial!</p>}
-
-{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+<BaseLayout pageTitle={pageTitle} pageDescription="Conheça Antonio Matheus: escritor técnico brasileiro, aprendiz constante e entusiasta de fotografia, aves e beisebol.">
+  <p class="eyebrow">Prazer, eu sou o Antonio</p>
+  <div class="about-grid">
+    <div>
+      <p class="page-intro">
+        Moro no {identity.country} e trabalho como {identity.occupation}. Gosto de transformar
+        assuntos complexos em explicações claras e úteis — e de aprender algo novo em cada projeto.
+      </p>
+      <p>
+        Este espaço é meu caderno aberto: um lugar para registrar ideias, experiências e descobertas
+        enquanto exploro a web e as ferramentas que ajudam a construí-la.
+      </p>
+      <h2>O que estou explorando</h2>
+      <ul class="skill-list">
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </div>
+    <aside class="about-note">
+      <h2>Um pouco além do trabalho</h2>
+      <p>Quando não estou escrevendo ou experimentando com código, você pode me encontrar com uma câmera, observando aves ou acompanhando uma partida de beisebol.</p>
+      <ul class="fact-list">
+        {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
+      </ul>
+    </aside>
+  </div>
 </BaseLayout>
-
-<style is:global define:vars={{ skillColor, fontWeight, textCase }}>
-  h1 {
-    color: var(--skillColor);
-  }
-
-  .skill-list li {
-    color: var(--skillColor);
-    font-weight: var(--fontWeight);
-    text-transform: var(--textCase);
-  }
-</style>

@@ -2,13 +2,17 @@
 const {platform, username} = Astro.props;
 ---
 
-<a href={`https://${platform}.com/${username}`}>{username}</a>
+<a class="footer-social" href={`https://${platform}.com/${username}`} target="_blank" rel="noreferrer">
+  GitHub <span class="visually-hidden">de {username}</span> ↗
+</a>
 
 <style>
-  a {
-    padding: 0.5rem 1rem;
-    color: white;
-    background-color: #4c1d95;
-    text-decoration: none;
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
   }
 </style>

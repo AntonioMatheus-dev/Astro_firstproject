@@ -1,26 +1,26 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'My First Blog Post'
+title: 'Meu primeiro post: começando com Astro'
 pubDate: 2022-07-01
-description: 'This is the first post of my new Astro blog.'
-author: 'Astro Learner'
+description: 'O começo da minha jornada criando um site e aprendendo Astro na prática.'
+author: 'Antonio Matheus'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'The Astro logo on a dark background with a pink glow.'
+    alt: 'Uma rosa em tons suaves.'
 tags: ["astro", "comunidade", "aprendendo em público"]
 ---
-# My First Blog Post
+# Meu primeiro post
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+Bem-vindo ao meu _novo caderno_ sobre aprender Astro! Vou compartilhar por aqui o caminho de construir um site, experimentar ideias e entender melhor como a web funciona.
 
-## What I've accomplished
+## O que já fiz
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
+1. **Instalei o Astro**: criei um projeto e preparei as ferramentas para começar.
 
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
+2. **Criei páginas**: aprendi que arquivos `.astro` dentro de `src/pages/` viram páginas do site.
 
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+3. **Escrevi publicações**: esta é a primeira delas — agora tenho páginas Astro e textos em Markdown no mesmo projeto.
 
-## What's next
+## E agora?
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+Quero seguir aprendendo e registrando as descobertas por aqui. Este site vai crescer junto com a minha jornada.

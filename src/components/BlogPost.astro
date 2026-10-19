@@ -1,5 +1,10 @@
 ---
-const {title, url} = Astro.props;
+const { title, url, description, pubDate } = Astro.props;
+const date = pubDate ? new Date(pubDate) : undefined;
 ---
 
-<li><a href={url}>{title}</a></li>
+<li class="post-card">
+  {date && <time class="post-date" datetime={date.toISOString()}>{date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>}
+  <h2><a href={url}>{title}</a></h2>
+  {description && <p>{description}</p>}
+</li>
