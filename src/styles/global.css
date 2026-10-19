@@ -292,20 +292,7 @@ p {
   align-items: start;
 }
 
-.about-note {
-  padding: 1.5rem;
-  border: 1px solid var(--line);
-  border-radius: 1rem;
-  background: var(--surface);
-}
-
-.about-note h2 {
-  margin-top: 0;
-  font-size: 1.4rem;
-}
-
-.skill-list,
-.fact-list {
+.skill-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -313,8 +300,7 @@ p {
   list-style: none;
 }
 
-.skill-list li,
-.fact-list li {
+.skill-list li {
   padding: 0.35rem 0.8rem;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -465,8 +451,7 @@ footer p {
 }
 
 .dark .hero-note p,
-.dark .skill-list li,
-.dark .fact-list li {
+.dark .skill-list li {
   color: var(--ink);
 }
 

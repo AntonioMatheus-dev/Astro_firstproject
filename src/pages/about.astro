@@ -5,13 +5,12 @@ const identity = {
   firstName: "Antonio Matheus",
   country: "Brasil",
   occupation: "escritor técnico",
-  hobbies: ["fotografia", "observação de aves", "beisebol"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Documentação técnica"];
+const skills = ["Astro", "TypeScript", "React", "Documentação técnica"];
 ---
 
-<BaseLayout pageTitle={pageTitle} pageDescription="Conheça Antonio Matheus: escritor técnico brasileiro, aprendiz constante e entusiasta de fotografia, aves e beisebol.">
+<BaseLayout pageTitle={pageTitle} pageDescription="Conheça Antonio Matheus, escritor técnico brasileiro interessado em tecnologia, escrita e criação para a web.">
   <p class="eyebrow">Prazer, eu sou o Antonio</p>
   <div class="about-grid">
     <div>
@@ -28,12 +27,5 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Documentação t
         {skills.map((skill) => <li>{skill}</li>)}
       </ul>
     </div>
-    <aside class="about-note">
-      <h2>Um pouco além do trabalho</h2>
-      <p>Quando não estou escrevendo ou experimentando com código, você pode me encontrar com uma câmera, observando aves ou acompanhando uma partida de beisebol.</p>
-      <ul class="fact-list">
-        {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
-      </ul>
-    </aside>
   </div>
 </BaseLayout>
