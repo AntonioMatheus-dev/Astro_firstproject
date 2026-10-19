@@ -7,7 +7,7 @@ import ThemeIcon from './ThemeIcon.astro';
   <nav aria-label="Navegação principal">
     <div>
       <a class="site-brand" href="/" aria-label="Antonio Matheus — página inicial">
-        <span class="brand-mark" aria-hidden="true">A</span>
+        <img class="brand-logo" src="/favicon.png" alt="" aria-hidden="true" />
         <span>Antonio Matheus</span>
       </a>
       <ThemeIcon />
@@ -34,15 +34,9 @@ import ThemeIcon from './ThemeIcon.astro';
     text-decoration: none;
   }
 
-  .brand-mark {
-    display: grid;
-    width: 2rem;
-    height: 2rem;
-    place-items: center;
-    border-radius: 50%;
-    background: var(--accent);
-    color: white;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
+  .brand-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
   }
 </style>
